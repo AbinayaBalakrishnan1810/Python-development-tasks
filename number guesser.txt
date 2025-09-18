@@ -1,0 +1,28 @@
+﻿import random
+
+def number_guessing_game():
+    print("🎯 Welcome to the Number Guessing Game!")
+    try:
+        low = int(input("Enter the lower bound: "))
+        high = int(input("Enter the upper bound: "))
+        if low >= high:
+            print("⚠️ Lower bound must be less than upper bound.")
+            return
+
+        secret = random.randint(low, high)
+        print(f"I'm thinking of a number between {low} and {high}. Try to guess it!")
+
+        while True:
+            guess = int(input("Your guess: "))
+            if guess < secret:
+                print("Too low! 📉")
+            elif guess > secret:
+                print("Too high! 📈")
+            else:
+                print("🎉 Correct! You guessed the number!")
+                break
+    except ValueError:
+        print("⚠️ Please enter valid integers.")
+
+# Start the game
+number_guessing_game()
